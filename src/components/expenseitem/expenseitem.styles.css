@@ -1,0 +1,21 @@
+.expense-item-leftside {
+  width: 200px;
+}
+
+.expense-title {
+  font-family: "BebasNeueProBold";
+  color: #212529;
+  flex-grow: 1;
+}
+
+.expense-title h1 {
+  font-size: 3rem;
+}
+
+.expense-amount {
+  width: 150px;
+  font-size: 2rem;
+  font-family: "NeueHaasUnica-Bold";
+  /* border-top-right-radius: 6.4px; */
+  background-color: #404bdd;
+}

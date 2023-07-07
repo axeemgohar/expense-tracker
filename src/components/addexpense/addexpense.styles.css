@@ -1,0 +1,50 @@
+.add-expense-btn {
+  background-color: #404bdd;
+  font-size: 1.3em;
+  font-family: "klavikabold";
+  border: none;
+}
+
+.cancel-expense-btn {
+  font-size: 1.3em;
+  font-family: "klavikabold";
+  border: none;
+}
+
+.add-expense-form-container {
+  transition: height 1s ease-out;
+  overflow: hidden;
+  border-radius: inherit;
+  background-color: white;
+}
+
+.modal_inputs_container {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  border-radius: inherit;
+}
+
+.modal_overlay {
+  position: fixed;
+  background-color: rgba(000, 000, 000, 0.2);
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+}
+
+.inputs-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.input-field {
+  width: 50%;
+}
+
+.input-field label {
+  font-size: 1.3em;
+  font-family: "klavikabold";
+}

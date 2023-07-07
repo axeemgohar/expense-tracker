@@ -1,0 +1,20 @@
+.expense-date-container {
+  width: 65%;
+}
+
+.expense-date-month {
+  background-color: #404bdd;
+  font-size: 1.3em;
+  font-family: "klavikabold";
+}
+
+.expense-date-day {
+  font-size: 2rem;
+  font-family: "NeueHaasUnica-Bold";
+}
+
+.expense-date-year {
+  font-size: 1.3em;
+
+  font-family: "NeueHaasUnica-Bold";
+}

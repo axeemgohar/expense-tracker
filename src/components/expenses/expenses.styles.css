@@ -1,0 +1,4 @@
+.expenses-container {
+  max-height: 770px;
+  overflow-y: auto;
+}

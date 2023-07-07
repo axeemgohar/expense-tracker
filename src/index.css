@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
+@font-face {
+  font-family: "NeueHaasUnica-Bold";
+  src: url("./fonts/NeueHaasUnica-Bold.woff2");
+}
+@font-face {
+  font-family: "NeueHaasUnica-Regular";
+  src: url("./fonts/NeueHaasUnica-Regular.woff2");
+}
+
+@font-face {
+  font-family: "klavikabold";
+  src: url("./fonts/klavikaboldwebfont.woff");
+}
+
+@font-face {
+  font-family: "BebasNeueProBold";
+  src: url("./fonts/BebasNeueProBold.woff2");
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}

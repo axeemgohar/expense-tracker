@@ -1,0 +1,19 @@
+.chart-fill-outline {
+  /* border: 1px solid #091181; */
+  /* border-style: ridge; */
+  background-color: #c2c6fb;
+  height: 12px;
+
+  overflow: hidden;
+}
+
+.chart-month {
+  font-family: "BebasNeueProBold";
+  font-size: 22px;
+}
+
+.chart-fill {
+  background-color: #404bdd;
+  transition: width 0.5s ease-out;
+  height: inherit;
+}
