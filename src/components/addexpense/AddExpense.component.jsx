@@ -48,6 +48,7 @@ const AddExpense = (props) => {
       id: Math.random(),
       date: new Date(userInput.date),
       amount: Number(userInput.amount),
+      title: userInput.title,
     });
     setUserInput({
       title: "",

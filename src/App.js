@@ -41,7 +41,10 @@ const App = () => {
 
   return (
     <>
-      <Card className="mx-5 my-4 position-relative z-2">
+      <Card
+        className="mx-5 my-4 position-relative z-2"
+        style={{ height: "70px" }}
+      >
         <AddExpense onGetUserInput={getUserInput} />
       </Card>
       <div className="mx-5 d-flex">
