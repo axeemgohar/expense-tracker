@@ -6,50 +6,56 @@ import ChartExpenses from "../chart/ChartExpenses.component";
 import "./expenses.styles.css";
 const Expenses = (props) => {
   const [receivedYear, setRecievedYear] = useState("Year");
+  const [recievedOrder, setRecievedOrder] = useState("None");
+  let expenseData = [...props.expenseData];
 
   const parsedYear = (recievedValue) => {
     setRecievedYear(recievedValue);
   };
-  const storeVal = props.expenseData.filter((element) => {
-    const year = element.date.getFullYear().toString();
 
-    return receivedYear === year;
-  });
-  console.log(storeVal.length);
+  if (receivedYear !== "Year") {
+    expenseData = expenseData.filter((element) => {
+      const year = element.date.getFullYear().toString();
+
+      return receivedYear === year;
+    });
+  }
+
+  const parsedOrder = (recievedValue) => {
+    setRecievedOrder(recievedValue);
+  };
+  if (recievedOrder === "high-to-low") {
+    expenseData.sort((a, b) => {
+      return b.amount - a.amount;
+    });
+  } else if (recievedOrder === "low-to-high") {
+    expenseData.sort((a, b) => {
+      return a.amount - b.amount;
+    });
+  }
 
   return (
     <>
-      <ChartExpenses
-        expenses={storeVal.length === 0 ? props.expenseData : storeVal}
-      />
+      <ChartExpenses expenses={expenseData} />
       <Card className="expenses-container ms-5 flex-grow-1 p-3">
         <ExpenseFilter
           selectedYear={receivedYear}
           expenseYears={props.expenseData}
           onParseYear={parsedYear}
+          onParseOrder={parsedOrder}
+          selectedOrder={recievedOrder}
         />
 
-        {storeVal.length === 0
-          ? props.expenseData.map((element) => {
-              return (
-                <ExpenseItem
-                  key={element.id}
-                  title={element.title}
-                  amount={element.amount}
-                  date={element.date}
-                />
-              );
-            })
-          : storeVal.map((element) => {
-              return (
-                <ExpenseItem
-                  key={element.id}
-                  title={element.title}
-                  amount={element.amount}
-                  date={element.date}
-                />
-              );
-            })}
+        {expenseData.map((element) => {
+          return (
+            <ExpenseItem
+              key={element.id}
+              title={element.title}
+              amount={element.amount}
+              date={element.date}
+            />
+          );
+        })}
       </Card>
     </>
   );
