@@ -5,6 +5,10 @@ const ExpenseFilter = (props) => {
     props.onParseYear(event.target.value);
   };
 
+  const sortFilterHandler = (event) => {
+    props.onParseOrder(event.target.value);
+  };
+
   const allYears = props.expenseYears.map((element) => {
     return element.date.getFullYear().toString();
   });
@@ -12,7 +16,22 @@ const ExpenseFilter = (props) => {
 
   return (
     <div className="d-flex justify-content-end">
-      <FormControl sx={{ m: 3, minWidth: 130 }}>
+      <FormControl sx={{ my: 3, mr: 2, minWidth: 130 }}>
+        <InputLabel id="demo-simple-select-label">Sort By</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={props.selectedOrder}
+          label="Sort By"
+          onChange={sortFilterHandler}
+        >
+          <MenuItem value="None">None</MenuItem>
+
+          <MenuItem value="low-to-high">Low to High</MenuItem>
+          <MenuItem value="high-to-low">High to Low</MenuItem>
+        </Select>
+      </FormControl>
+      <FormControl sx={{ m: 3, ml: 1, minWidth: 130 }}>
         <InputLabel id="demo-simple-select-label">Select Year</InputLabel>
         <Select
           labelId="demo-simple-select-label"
