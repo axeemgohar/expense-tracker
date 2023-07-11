@@ -12,7 +12,7 @@
 }
 
 .add-expense-form-container {
-  transition: height 1s ease-out;
+  transition: height 0.8s ease-out;
   overflow: hidden;
   border-radius: inherit;
   background-color: white;
@@ -28,7 +28,7 @@
 .modal_overlay {
   position: fixed;
   background-color: rgba(000, 000, 000, 0.2);
-  height: 100%;
+  height: 100vh;
   left: 0;
   top: 0;
   z-index: -1;
