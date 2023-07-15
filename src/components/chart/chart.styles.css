@@ -1,4 +1,4 @@
 .chart-card {
-  width: 350px;
+  min-width: 350px;
   height: fit-content;
 }

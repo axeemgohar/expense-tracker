@@ -20,7 +20,7 @@ const App = () => {
       >
         <AddExpense onGetUserInput={getUserInput} />
       </Card>
-      <div className="mx-5 d-flex">
+      <div className="mx-5 d-flex mb-5">
         <Expenses expenseData={userData} setFilteredData={setUserData} />
       </div>
     </>

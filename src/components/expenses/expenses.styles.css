@@ -1,4 +1,5 @@
-.expenses-container {
-  max-height: 770px;
+.all-expense-items {
+  max-height: 675.44px;
   overflow-y: auto;
+  /* transform: translateZ(0); */
 }

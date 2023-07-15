@@ -17,6 +17,11 @@
   font-family: "BebasNeueProBold";
   src: url("./fonts/BebasNeueProBold.woff2");
 }
+
+@font-face {
+  font-family: "ChevinProDemiBold";
+  src: url("./fonts/ChevinProDemiBold.woff2");
+}
 * {
   box-sizing: border-box;
 }

@@ -17,6 +17,7 @@ const ChartGraph = (props) => {
             maxValue={maximumVal}
             label={element.label}
             value={element.wholeMonthExpense}
+            key={element.label}
           />
         );
       })}

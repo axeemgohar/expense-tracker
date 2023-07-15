@@ -1,4 +1,5 @@
 import { useState } from "react";
+import EmptyBucket from "../../assets/EmptyBucket.svg";
 import Card from "../UI wrappers/Card.component";
 import ExpenseFilter from "../expensefilter/ExpenseFilter.component";
 import ExpenseItem from "../expenseitem/ExpenseItem.component";
@@ -37,25 +38,38 @@ const Expenses = (props) => {
   return (
     <>
       <ChartExpenses expenses={expenseData} />
-      <Card className="expenses-container ms-5 flex-grow-1 p-3">
-        <ExpenseFilter
-          selectedYear={receivedYear}
-          expenseYears={props.expenseData}
-          onParseYear={parsedYear}
-          onParseOrder={parsedOrder}
-          selectedOrder={recievedOrder}
-        />
-
-        {expenseData.map((element) => {
-          return (
-            <ExpenseItem
-              key={element.id}
-              title={element.title}
-              amount={element.amount}
-              date={element.date}
+      <Card className="expenses-container ms-5 flex-grow-1">
+        {expenseData.length > 0 ? (
+          <>
+            <ExpenseFilter
+              selectedYear={receivedYear}
+              expenseYears={props.expenseData}
+              onParseYear={parsedYear}
+              onParseOrder={parsedOrder}
+              selectedOrder={recievedOrder}
             />
-          );
-        })}
+            <div className="all-expense-items">
+              {expenseData.map((element) => {
+                return (
+                  <ExpenseItem
+                    key={element.id}
+                    title={element.title}
+                    amount={element.amount}
+                    date={element.date}
+                  />
+                );
+              })}
+            </div>
+          </>
+        ) : (
+          <div
+            className="d-flex flex-column justify-content-center align-items-center"
+            style={{ height: "763.41px" }}
+          >
+            <img src={EmptyBucket} width={150} alt="Empty Bucket" />
+            <h5>No expense found</h5>
+          </div>
+        )}
       </Card>
     </>
   );

@@ -1,5 +1,7 @@
+import { Tooltip } from "@mui/material";
 import Card from "../UI wrappers/Card.component";
 import ExpenseDate from "../expensedate/ExpenseDate.component";
+import Trash from "../../assets/Trash.svg";
 import "./expenseitem.styles.css";
 
 const ExpenseItem = (props) => {
@@ -10,14 +12,17 @@ const ExpenseItem = (props) => {
           <ExpenseDate expenseDate={props.date} />
         </div>
         <div className="d-flex align-items-center expense-title">
-          <h1 className="ms-4">{props.title}</h1>
+          <h2 className="ms-4">{props.title}</h2>
         </div>
-        <div className="text-light rounded-2 bg-dark border border-light border-2 expense-amount d-flex align-items-center justify-content-center">
-          ${props.amount}
+        <div className="text-light rounded-2 bg-dark border border-light border-2 expense-amount d-flex align-items-center justify-content-center ps-1 position-relative">
+          <Tooltip title={"$" + props.amount} placement="top">
+            <h2 title={props.amount}>${props.amount}</h2>
+          </Tooltip>
+          <button className="position-absolute end-0 bottom-0 btn p-0">
+            <img src={Trash} width={30} alt="Trash" />
+          </button>
         </div>
       </div>
-
-      {/* <div className="mb-3 border-top rounded-bottom-2">${props.amount}</div> */}
     </Card>
   );
 };
