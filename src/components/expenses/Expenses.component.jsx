@@ -8,6 +8,7 @@ import "./expenses.styles.css";
 const Expenses = (props) => {
   const [receivedYear, setRecievedYear] = useState("Year");
   const [recievedOrder, setRecievedOrder] = useState("None");
+
   let expenseData = [...props.expenseData];
 
   const parsedYear = (recievedValue) => {
@@ -22,6 +23,9 @@ const Expenses = (props) => {
     });
   }
 
+  if (receivedYear !== "Year" && expenseData.length === 0) {
+    setRecievedYear("Year");
+  }
   const parsedOrder = (recievedValue) => {
     setRecievedOrder(recievedValue);
   };
@@ -34,6 +38,10 @@ const Expenses = (props) => {
       return a.amount - b.amount;
     });
   }
+
+  const handleDeleteExpense = (id) => {
+    props.onDeleteGetId(id);
+  };
 
   return (
     <>
@@ -52,10 +60,12 @@ const Expenses = (props) => {
               {expenseData.map((element) => {
                 return (
                   <ExpenseItem
+                    onDeleteExpense={handleDeleteExpense}
                     key={element.id}
                     title={element.title}
                     amount={element.amount}
                     date={element.date}
+                    id={element.id}
                   />
                 );
               })}
