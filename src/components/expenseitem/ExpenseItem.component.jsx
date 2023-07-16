@@ -5,6 +5,9 @@ import Trash from "../../assets/Trash.svg";
 import "./expenseitem.styles.css";
 
 const ExpenseItem = (props) => {
+  const handleDeleteExpense = () => {
+    props.onDeleteExpense(props.id);
+  };
   return (
     <Card className="mx-3 my-3 border rounded-top-2 border-bottom-0">
       <div className="d-flex">
@@ -16,9 +19,12 @@ const ExpenseItem = (props) => {
         </div>
         <div className="text-light rounded-2 bg-dark border border-light border-2 expense-amount d-flex align-items-center justify-content-center ps-1 position-relative">
           <Tooltip title={"$" + props.amount} placement="top">
-            <h2 title={props.amount}>${props.amount}</h2>
+            <h2>${props.amount}</h2>
           </Tooltip>
-          <button className="position-absolute end-0 bottom-0 btn p-0">
+          <button
+            className="position-absolute end-0 bottom-0 btn p-0"
+            onClick={handleDeleteExpense}
+          >
             <img src={Trash} width={30} alt="Trash" />
           </button>
         </div>
