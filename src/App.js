@@ -12,6 +12,16 @@ const App = () => {
     });
   };
 
+  const deleteExpense = (value) => {
+    const getIndex = userData.findIndex((item) => item.id === value);
+    const deleteItem = [...userData];
+    deleteItem.splice(getIndex, 1);
+
+    // console.log(deleteItem);
+    setUserData(deleteItem);
+  };
+  console.log(userData);
+
   return (
     <>
       <Card
@@ -21,7 +31,7 @@ const App = () => {
         <AddExpense onGetUserInput={getUserInput} />
       </Card>
       <div className="mx-5 d-flex mb-5">
-        <Expenses expenseData={userData} setFilteredData={setUserData} />
+        <Expenses expenseData={userData} onDeleteGetId={deleteExpense} />
       </div>
     </>
   );
