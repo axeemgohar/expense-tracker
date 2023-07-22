@@ -1,6 +1,6 @@
 import { TextField, styled } from "@mui/material";
 import "./addexpense.styles.css";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -22,14 +22,14 @@ const CssTextField = styled(TextField)({
   },
 });
 const AddExpense = (props) => {
+  const elementRef = useRef(null);
+  const [height, setHeight] = useState(0);
   const [userInput, setUserInput] = useState({
     title: "",
     amount: "",
     date: "",
   });
-  const [showInputs, setShowInputs] = useState({
-    showInput: true,
-  });
+  const [showInputs, setShowInputs] = useState(true);
 
   const userInputHandler = (event) => {
     const { name } = event.target;
@@ -58,26 +58,46 @@ const AddExpense = (props) => {
   };
 
   const showAddExpenseInputsHandler = () => {
-    setShowInputs({
-      showInput: false,
-    });
+    setShowInputs(false);
   };
 
   const cancelAddExpenseHandler = () => {
-    setShowInputs({
-      showInput: true,
-    });
+    setShowInputs(true);
   };
+
+  useEffect(() => {
+    // Function to update the height state based on the current element height
+    const updateHeight = () => {
+      if (elementRef.current) {
+        const elementHeight = elementRef.current.clientHeight;
+        setHeight(elementHeight - 70);
+      }
+    };
+
+    // Initial height update
+    updateHeight();
+
+    // Add a resize event listener to update the height when it changes
+    const handleResize = () => {
+      updateHeight();
+    };
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [showInputs]);
 
   return (
     <div
       className="add-expense-form-container d-flex flex-column justify-content-center"
       style={{
-        height: `${showInputs.showInput === true ? "70px" : "335px"}`,
+        height: `${showInputs === true ? "70px" : `${70 + height}px`}`,
       }}
     >
-      {showInputs.showInput === true ? (
-        <div className="ms-4 ps-2">
+      {showInputs ? (
+        <div className="ms-2 ps-2">
           <button
             className="add-expense-btn rounded-2 px-3 py-2 text-light"
             onClick={showAddExpenseInputsHandler}
@@ -86,7 +106,7 @@ const AddExpense = (props) => {
           </button>
         </div>
       ) : (
-        <div className="modal_inputs_container">
+        <div className="modal_inputs_container" ref={elementRef}>
           <div
             className="modal_overlay"
             onClick={cancelAddExpenseHandler}
@@ -98,11 +118,12 @@ const AddExpense = (props) => {
                   Expense Title
                 </label>
                 <CssTextField
+                  className="mui-input-field"
                   margin="normal"
                   id="outlined-basic title"
-                  placeholder="Enter Epense Title"
+                  placeholder="Enter Expense Title"
                   variant="outlined"
-                  sx={{ mt: 1, width: "75%" }}
+                  sx={{ mt: 1 }}
                   type="text"
                   name="title"
                   onChange={userInputHandler}
@@ -118,7 +139,8 @@ const AddExpense = (props) => {
                   id="outlined-basic amount"
                   variant="outlined"
                   type="number"
-                  sx={{ mt: 1, width: "75%" }}
+                  className="mui-input-field"
+                  sx={{ mt: 1 }}
                   placeholder="Enter Amount"
                   name="amount"
                   onChange={userInputHandler}
@@ -134,7 +156,8 @@ const AddExpense = (props) => {
                   id="outlined-basic date"
                   variant="outlined"
                   type="date"
-                  sx={{ mt: 1, width: "75%" }}
+                  className="mui-input-field"
+                  sx={{ mt: 1 }}
                   name="date"
                   onChange={userInputHandler}
                   value={userInput.date}
@@ -143,7 +166,7 @@ const AddExpense = (props) => {
                 />
               </div>
             </div>
-            <div className="d-flex inputs-container justify-content-end py-3">
+            <div className="d-flex inputs-btn-container justify-content-end py-3">
               <div className="me-4">
                 <button
                   onClick={cancelAddExpenseHandler}

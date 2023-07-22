@@ -2,6 +2,7 @@ import Expenses from "./components/expenses/Expenses.component";
 import AddExpense from "./components/addexpense/AddExpense.component";
 import Card from "./components/UI wrappers/Card.component";
 import { useState } from "react";
+import "./app.css";
 
 const App = () => {
   const [userData, setUserData] = useState([]);
@@ -17,20 +18,18 @@ const App = () => {
     const deleteItem = [...userData];
     deleteItem.splice(getIndex, 1);
 
-    // console.log(deleteItem);
     setUserData(deleteItem);
   };
-  console.log(userData);
 
   return (
     <>
       <Card
-        className="mx-5 my-4 position-relative z-2"
-        style={{ height: "70px" }}
+        className="mx-2 mx-sm-5 my-4 position-relative z-2"
+        style={{ maxHeight: "70px" }}
       >
         <AddExpense onGetUserInput={getUserInput} />
       </Card>
-      <div className="mx-5 d-flex mb-5">
+      <div className="mx-2 mx-sm-5 mb-5 chart-expenses-container">
         <Expenses expenseData={userData} onDeleteGetId={deleteExpense} />
       </div>
     </>

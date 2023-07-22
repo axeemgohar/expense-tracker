@@ -18,3 +18,51 @@
 
   font-family: "NeueHaasUnica-Bold";
 }
+
+@media screen and (max-width: 1200px) {
+  .expense-date-container {
+    width: 110px;
+  }
+
+  .expense-date-month {
+    font-size: 1.1em;
+  }
+  .expense-date-day {
+    font-size: 1.7rem;
+  }
+  .expense-date-year {
+    font-size: 1.1em;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .expense-date-container {
+    width: 100px;
+  }
+
+  .expense-date-month {
+    font-size: 1em;
+  }
+  .expense-date-day {
+    font-size: 1.6rem;
+  }
+  .expense-date-year {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .expense-date-container {
+    width: 75px;
+  }
+
+  .expense-date-month {
+    font-size: 0.8em;
+  }
+  .expense-date-day {
+    font-size: 1.1rem;
+  }
+  .expense-date-year {
+    font-size: 0.8em;
+  }
+}

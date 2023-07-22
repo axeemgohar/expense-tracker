@@ -12,7 +12,7 @@
 }
 
 .add-expense-form-container {
-  transition: height 0.8s ease-out;
+  transition: all 0.8s ease-out;
   overflow: hidden;
   border-radius: inherit;
   background-color: white;
@@ -35,7 +35,8 @@
   width: 100%;
 }
 
-.inputs-container {
+.inputs-container,
+.inputs-btn-container {
   width: 90%;
   margin: 0 auto;
 }
@@ -49,6 +50,56 @@
   font-family: "klavikabold";
 }
 
+.mui-input-field {
+  width: 75%;
+}
+
 .no-expense {
   box-shadow: 0px 15px 10px -15px #111;
+}
+
+@media screen and (max-width: 900px) {
+  .input-field {
+    padding: 0 10px;
+  }
+  .input-field label {
+    font-size: 1.2em;
+  }
+  .mui-input-field {
+    width: 100%;
+  }
+  .add-expense-btn,
+  .cancel-expense-btn {
+    font-size: 1.2em;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .add-expense-btn,
+  .cancel-expense-btn {
+    font-size: 1.1em;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .inputs-container {
+    flex-wrap: nowrap !important;
+    flex-direction: column;
+  }
+  .input-field {
+    padding: 0 0px;
+    width: 100%;
+  }
+  .input-field label {
+    font-size: 1.2em;
+  }
+  .mui-input-field div input {
+    width: 100%;
+    padding: 10px 14px;
+  }
+
+  .add-expense-btn,
+  .cancel-expense-btn {
+    font-size: 1.2em;
+  }
 }

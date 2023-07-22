@@ -2,3 +2,24 @@
   min-width: 350px;
   height: fit-content;
 }
+
+@media screen and (max-width: 1300px) {
+  .chart-card {
+    min-width: 300px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .chart-card {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .chart-card {
+    padding-left: 0.7rem !important;
+    padding-right: 0.7rem !important;
+  }
+}

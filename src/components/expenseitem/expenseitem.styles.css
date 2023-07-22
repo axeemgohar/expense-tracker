@@ -20,8 +20,8 @@
 }
 
 .expense-amount {
-  width: 150px;
-
+  min-width: 150px;
+  max-width: 150px;
   font-family: "NeueHaasUnica-Bold";
 }
 
@@ -30,4 +30,114 @@
   overflow: hidden;
   white-space: nowrap;
   font-size: 1.7rem;
+}
+
+.delete-icon {
+  width: 30px;
+}
+
+@media screen and (max-width: 1200px) {
+  .expense-item-leftside {
+    min-width: 155px;
+  }
+  .expense-title {
+    width: calc(100% - 280px);
+  }
+  .expense-title h2 {
+    font-size: 1.8rem;
+  }
+
+  .expense-amount {
+    min-width: 125px;
+    max-width: 125px;
+  }
+  .expense-amount h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .expense-title h2 {
+    font-size: 1.5rem;
+  }
+
+  .expense-amount h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .expense-item-leftside {
+    min-width: 120px;
+  }
+
+  .expense-title {
+    width: calc(100% - 220px);
+  }
+  .expense-title h2 {
+    font-size: 1.2rem;
+  }
+
+  .expense-amount {
+    min-width: 100px;
+    max-width: 100px;
+  }
+
+  .expense-amount h2 {
+    font-size: 1rem;
+  }
+  .delete-icon {
+    width: 24px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .expense-item-leftside {
+    min-width: 95px;
+  }
+
+  .expense-title {
+    width: calc(100% - 175px);
+  }
+  .expense-title h2 {
+    font-size: 1.1rem;
+  }
+
+  .expense-amount {
+    min-width: 80px;
+    max-width: 80px;
+  }
+
+  .expense-amount h2 {
+    font-size: 0.9rem;
+  }
+  .delete-icon {
+    width: 22px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .expense-item-leftside {
+    min-width: 80px;
+  }
+
+  .expense-title {
+    width: calc(100% - 145px);
+  }
+  .expense-title h2 {
+    font-size: 0.8rem;
+  }
+
+  .expense-amount {
+    min-width: 75px;
+    max-width: 75px;
+  }
+
+  .expense-amount h2 {
+    font-size: 0.7rem;
+  }
+
+  .delete-icon {
+    width: 20px;
+  }
 }

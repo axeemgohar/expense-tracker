@@ -10,7 +10,7 @@ const ChartGraph = (props) => {
   const maximumVal = Math.max(...datavalues);
 
   return (
-    <Card className="p-3 chart-card">
+    <Card className="px-3 py-2 chart-card">
       {props.chartData.map((element) => {
         return (
           <ChartBar

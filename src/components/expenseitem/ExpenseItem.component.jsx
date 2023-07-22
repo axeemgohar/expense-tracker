@@ -9,13 +9,13 @@ const ExpenseItem = (props) => {
     props.onDeleteExpense(props.id);
   };
   return (
-    <Card className="mx-3 my-3 border rounded-top-2 border-bottom-0">
+    <Card className="mx-2 mx-sm-3 my-3 border rounded-top-2 border-bottom-0">
       <div className="d-flex">
         <div className="expense-item-leftside border-end py-2">
           <ExpenseDate expenseDate={props.date} />
         </div>
         <div className="d-flex align-items-center expense-title">
-          <h2 className="ms-4">{props.title}</h2>
+          <h2 className="ms-2 ms-md-4">{props.title}</h2>
         </div>
         <div className="text-light rounded-2 bg-dark border border-light border-2 expense-amount d-flex align-items-center justify-content-center ps-1 position-relative">
           <Tooltip title={"$" + props.amount} placement="top">
@@ -25,7 +25,7 @@ const ExpenseItem = (props) => {
             className="position-absolute end-0 bottom-0 btn p-0"
             onClick={handleDeleteExpense}
           >
-            <img src={Trash} width={30} alt="Trash" />
+            <img src={Trash} className="delete-icon" alt="Delete" />
           </button>
         </div>
       </div>
