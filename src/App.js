@@ -1,7 +1,7 @@
 import Expenses from "./components/expenses/Expenses.component";
 import AddExpense from "./components/addexpense/AddExpense.component";
 import Card from "./components/UI wrappers/Card.component";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./app.css";
 
 const App = () => {
@@ -13,12 +13,26 @@ const App = () => {
     });
   };
 
+  useEffect(() => {
+    const getLocalExpenses = JSON.parse(localStorage.getItem("expenses"));
+    if (getLocalExpenses) {
+      const getLocalStorage = getLocalExpenses.map((element) => {
+        return {
+          id: element.id,
+          date: new Date(element.date),
+          amount: Number(element.amount),
+          title: element.title,
+        };
+      });
+      setUserData(getLocalStorage);
+    }
+  }, []);
   const deleteExpense = (value) => {
     const getIndex = userData.findIndex((item) => item.id === value);
     const deleteItem = [...userData];
     deleteItem.splice(getIndex, 1);
-
     setUserData(deleteItem);
+    localStorage.setItem("expenses", JSON.stringify(deleteItem));
   };
 
   return (

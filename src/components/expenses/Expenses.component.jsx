@@ -9,6 +9,7 @@ const Expenses = (props) => {
   const [recievedOrder, setRecievedOrder] = useState("None");
 
   let expenseData = [...props.expenseData];
+  console.log(expenseData);
 
   const parsedYear = (recievedValue) => {
     setRecievedYear(recievedValue);
@@ -38,10 +39,6 @@ const Expenses = (props) => {
     });
   }
 
-  const handleDeleteExpense = (id) => {
-    props.onDeleteGetId(id);
-  };
-
   return (
     <>
       <ChartExpenses expenses={expenseData} />
@@ -59,7 +56,7 @@ const Expenses = (props) => {
               {expenseData.map((element) => {
                 return (
                   <ExpenseItem
-                    onDeleteExpense={handleDeleteExpense}
+                    onDeleteExpense={props.onDeleteGetId}
                     key={element.id}
                     title={element.title}
                     amount={element.amount}

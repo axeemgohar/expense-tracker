@@ -43,13 +43,19 @@ const AddExpense = (props) => {
 
   const addExpense = (event) => {
     event.preventDefault();
-
-    props.onGetUserInput({
+    const inputData = {
       id: Math.random(),
       date: new Date(userInput.date),
       amount: Number(userInput.amount),
       title: userInput.title,
-    });
+    };
+    props.onGetUserInput(inputData);
+    const getLocalStorage = JSON.parse(localStorage.getItem("expenses")) || [];
+    localStorage.setItem(
+      "expenses",
+      JSON.stringify([...getLocalStorage, inputData])
+    );
+
     setUserInput({
       title: "",
       amount: "",
@@ -74,16 +80,13 @@ const AddExpense = (props) => {
       }
     };
 
-    // Initial height update
     updateHeight();
 
-    // Add a resize event listener to update the height when it changes
     const handleResize = () => {
       updateHeight();
     };
     window.addEventListener("resize", handleResize);
 
-    // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener("resize", handleResize);
     };
