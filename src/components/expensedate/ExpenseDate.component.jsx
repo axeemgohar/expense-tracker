@@ -1,5 +1,6 @@
 import "./expensedate.styles.css";
 const ExpenseDate = (props) => {
+  //Formatting Date
   const date = props.expenseDate;
   const month = date.toLocaleString("en-US", { month: "long" });
   const day = date.toLocaleString("en-US", { day: "2-digit" });

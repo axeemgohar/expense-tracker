@@ -1,0 +1,28 @@
+.header-container {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 111;
+  background-color: white;
+}
+.header-container button {
+  height: 15px;
+  width: 15px;
+  border: none;
+  margin: 0 7px;
+  border-radius: 50%;
+}
+
+.close-tab {
+  background-color: #ff605c;
+}
+
+.full-screen {
+  background-color: #00ca4e;
+}
+
+.open-new-tab {
+  background-color: #ffbd44;
+}

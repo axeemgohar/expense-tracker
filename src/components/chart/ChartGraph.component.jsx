@@ -3,10 +3,12 @@ import Card from "../UI wrappers/Card.component";
 import ChartBar from "./ChartBar.component";
 
 const ChartGraph = (props) => {
+  //Extracting The Array Of Amount
   const datavalues = props.chartData.map((element) => {
     return element.wholeMonthExpense;
   });
 
+  //Extracting The Maximum Amount From The Array
   const maximumVal = Math.max(...datavalues);
 
   return (

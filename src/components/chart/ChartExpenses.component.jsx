@@ -52,6 +52,7 @@ const ChartExpenses = (props) => {
     },
   ];
 
+  //Pushing Expense Amount In Chart Data Based On The Selected Month
   for (const expense of props.expenses) {
     const getMonth = expense.date.getMonth();
     chartData[getMonth].wholeMonthExpense += expense.amount;

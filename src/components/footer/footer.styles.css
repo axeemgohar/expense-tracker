@@ -1,0 +1,36 @@
+.footer {
+  min-height: 100px;
+  background-color: white;
+  box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.app-details h4 {
+  font-family: "BebasNeueProBold";
+}
+
+.app-details h5 {
+  font-family: "BebasNeueProBold";
+}
+
+.mail {
+  font-family: "BebasNeueProBold";
+  font-weight: lighter;
+  font-size: 22px;
+}
+
+.mail a {
+  text-decoration: none;
+  color: rgb(29, 29, 29);
+}
+
+@media screen and (max-width: 650px) {
+  .social-icon {
+    width: 35px;
+    height: 35px;
+  }
+}

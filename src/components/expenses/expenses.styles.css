@@ -1,12 +1,26 @@
 .all-expense-items {
-  max-height: 675.44px;
+  max-height: 659.45px;
+  min-height: 659.45px;
   overflow-y: auto;
-
   /* transform: translateZ(0); */
+}
+
+.empty-bucket {
+  width: 150px;
 }
 
 @media screen and (max-width: 1100px) {
   .expenses-container {
     margin-left: 0 !important;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .empty-bucket {
+    width: 130px;
+  }
+
+  .empty-bucket + h5 {
+    font-size: 18px;
   }
 }

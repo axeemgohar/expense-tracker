@@ -5,6 +5,7 @@ import Trash from "../../assets/Trash.svg";
 import "./expenseitem.styles.css";
 
 const ExpenseItem = (props) => {
+  //Sending Id Of The Selected Expense To The Parent For Deletion
   const handleDeleteExpense = () => {
     props.onDeleteExpense(props.id);
   };

@@ -1,15 +1,17 @@
 import { FormControl, Select, MenuItem, InputLabel } from "@mui/material";
 import "./expensefilter.styles.css";
 const ExpenseFilter = (props) => {
+  //Sending Selected Year To The Parent
   const clickFilterHandler = (event) => {
-    console.log(event.target.value);
     props.onParseYear(event.target.value);
   };
 
+  //Sending Selected Order To The Parent
   const sortFilterHandler = (event) => {
     props.onParseOrder(event.target.value);
   };
 
+  //Extracting Unique Values To Avoid Duplication Of Years
   const allYears = props.expenseYears.map((element) => {
     return element.date.getFullYear().toString();
   });

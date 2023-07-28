@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import "./chartbar.styles.css";
 
+//Using Styled Components To Apply Dynamic Styling For Media Queries
 const FillBar = styled.div`
   background-color: #404bdd;
   transition: width 0.5s ease-out;
@@ -25,8 +26,8 @@ const FillBar = styled.div`
 `;
 
 const ChartBar = (props) => {
+  //Getting The Percentage To Fill Chart Bar
   let initialFill = "0%";
-
   if (props.maxValue > 0) {
     initialFill =
       Math.round((props.value / props.maxValue) * 100).toString() + "%";
