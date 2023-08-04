@@ -1,6 +1,6 @@
 # Expense Tracker
 
-This project is currently underdevelopment
+This project is similar to the one demonstrated by Maximillian Schwarzmuller in the Udemy course ["React - The Complete Guide"](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
 
 ## Available Scripts
 
